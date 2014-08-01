@@ -1,9 +1,11 @@
 platform:
-  - x64
   - x86
+#  - x64
 
 install:
   - ECHO %PLATFORM%
+  - ECHO %APPVEYOR_REPO_COMMIT_MESSAGE%
+  - if not "%APPVEYOR_REPO_COMMIT_MESSAGE%" == "%APPVEYOR_REPO_COMMIT_MESSAGE:[publish binary]=%" (ECHO "FOUND") ELSE (ECHO "NOT FOUND")
   - SET CM=%APPVEYOR_REPO_COMMIT_MESSAGE%
   - ECHO %CM%
   - if not "%CM%" == "%CM:[publish binary]=%" (ECHO "FOUND") ELSE (ECHO "NOT FOUND")
