@@ -3,9 +3,7 @@ platform:
 #  - x64
 
 install:
-  - ps: Write-Output $env:Platform
-  - ps: Write-Output $env:APPVEYOR_REPO_COMMIT_MESSAGE
-  - ps: if($env:APPVEYOR_REPO_COMMIT_MESSAGE.ToLower().Contains('[publish binary]')) { ECHO "publish!" }
+  - build-appveyor.bat
 
 build: OFF
 test: OFF
